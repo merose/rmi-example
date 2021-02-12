@@ -23,8 +23,7 @@ public class TaskServer {
     public static void main(String[] args) throws RemoteException {
         TaskServiceImpl server = new TaskServiceImpl();
         TaskService stub = (TaskService) UnicastRemoteObject.exportObject(
-                server,
-                0);
+                server, 0);
         Registry registry = LocateRegistry
                 .createRegistry(TaskService.RMI_PORT);
         registry.rebind(TaskService.SERVICE_NAME, stub);
