@@ -11,12 +11,13 @@ Use _File_ > _Import..._ and then _Existing Maven Projects_ to import the projec
 
 ## Running
 
-To start the server, either use _Run As_ and _Java Application_ within Eclipse. Or build with Maven
-and use this command line.
+The server Java application is in the class `TaskServer`. The client is in the class `TaskClient`.
+To start the server, either use _Run As_ and _Java Application_ within Eclipse, or build with Maven
+and use this command line:
 
     java -cp target/rmi-example-1.0.0-SNAPSHOT.jar me.markrose.example.TaskServer
 
-To start the client
+You can also start the client within Eclipse, or use this command line:
 
     java -cp target/rmi-example-1.0.0-SNAPSHOT.jar me.markrose.example.TaskClient
 
