@@ -8,8 +8,6 @@ import java.rmi.RemoteException;
  */
 public interface AlertHandler extends Remote {
 
-    String SERVICE_NAME = "alertHandler";
-
     /**
      * Handles an alert.
      *
