@@ -1,9 +1,10 @@
-package me.markrose.example;
+package me.markrose.example.client;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import me.markrose.example.services.TaskService;
 
 /**
  * Implements the client-side boiler-plate code required to connect to a remote

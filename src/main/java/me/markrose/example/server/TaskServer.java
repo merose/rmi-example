@@ -1,9 +1,10 @@
-package me.markrose.example;
+package me.markrose.example.server;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import me.markrose.example.services.TaskService;
 
 /**
  * Implements the boiler-plate code required to instantiate a server-side

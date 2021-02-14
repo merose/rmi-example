@@ -15,10 +15,10 @@ The server Java application is in the class `TaskServer`. The client is in the c
 To start the server, either use _Run As_ and _Java Application_ within Eclipse, or build with Maven
 and use this command line:
 
-    java -cp target/rmi-example-1.0.0-SNAPSHOT.jar me.markrose.example.TaskServer
+    java -cp target/rmi-example-1.0.0-SNAPSHOT.jar me.markrose.example.server.TaskServer
 
 You can also start the client within Eclipse, or use this command line:
 
-    java -cp target/rmi-example-1.0.0-SNAPSHOT.jar me.markrose.example.TaskClient
+    java -cp target/rmi-example-1.0.0-SNAPSHOT.jar me.markrose.example.client.TaskClient
 
 You can stop the server using control-C.

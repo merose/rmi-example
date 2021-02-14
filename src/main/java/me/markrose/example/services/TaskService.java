@@ -1,4 +1,4 @@
-package me.markrose.example;
+package me.markrose.example.services;
 
 import java.io.Serializable;
 import java.rmi.Remote;

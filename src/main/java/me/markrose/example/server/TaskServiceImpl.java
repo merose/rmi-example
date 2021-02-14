@@ -1,6 +1,8 @@
-package me.markrose.example;
+package me.markrose.example.server;
 
 import java.rmi.RemoteException;
+import me.markrose.example.services.TaskService;
+import me.markrose.example.services.TaskService.TaskRequest;
 
 /**
  * Implements the server side of the service provider, allowing clients to

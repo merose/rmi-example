@@ -1,7 +1,8 @@
-package me.markrose.example;
+package me.markrose.example.client;
 
 import java.rmi.RemoteException;
-import me.markrose.example.TaskService.TaskRequest;
+import me.markrose.example.services.TaskService;
+import me.markrose.example.services.TaskService.TaskRequest;
 
 /**
  * Implements the portion of the client code that requests tasks be performed.
