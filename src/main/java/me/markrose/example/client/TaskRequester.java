@@ -1,15 +1,20 @@
 package me.markrose.example.client;
 
 import java.rmi.RemoteException;
-import me.markrose.example.services.TaskService;
-import me.markrose.example.services.TaskService.TaskRequest;
+import me.markrose.example.services.TaskCreator;
+import me.markrose.example.services.TaskRequest;
 
 /**
  * Implements the portion of the client code that requests tasks be performed.
  */
 public class TaskRequester implements Runnable {
 
-    private TaskService service;
+    private String[] TASK_NAMES = { "importModels", "receiveData",
+            "processData" };
+
+    private TaskCreator service;
+
+    private int nextTaskIndex = 0;
 
     /**
      * Creates a new instance of a task requesting entity, which uses a given
@@ -19,7 +24,7 @@ public class TaskRequester implements Runnable {
      *
      * @param service the service provider
      */
-    public TaskRequester(TaskService service) {
+    public TaskRequester(TaskCreator service) {
         this.service = service;
 
     }
@@ -29,18 +34,30 @@ public class TaskRequester implements Runnable {
      */
     @Override
     public void run() {
-        TaskRequest request = new TaskRequest("sample task");
-        System.out.println("[client] About to request task: " + request);
-        try {
-            boolean result = service.createTask(request);
-            System.out.println("[client] Result: " + result);
-        } catch (RemoteException e) {
-            System.err.println(
-                    "[client] Exception while trying to request a task: "
-                            + e.getMessage());
-            e.printStackTrace();
+        for (;;) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                // ignore
+            }
+
+            // Create the next task request.
+            TaskRequest request = new TaskRequest(TASK_NAMES[nextTaskIndex]);
+            nextTaskIndex = (nextTaskIndex + 1) % TASK_NAMES.length;
+
+            // Request the task.
+            System.out.println(
+                    "[client] About to request task: " + request.getName());
+            try {
+                boolean result = service.createTask(request);
+                System.out.println("[client] Result: " + result);
+            } catch (RemoteException e) {
+                System.err.println(
+                        "[client] Exception while trying to request a task: "
+                                + e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
-
 
 }
